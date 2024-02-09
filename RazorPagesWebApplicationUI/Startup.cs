@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using ClassLibrary;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +27,8 @@ namespace RazorPagesWebApplicationUI
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddRazorPages();
+			services.AddSingleton<PersonModel>();
+			services.AddTransient<AddressModel>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

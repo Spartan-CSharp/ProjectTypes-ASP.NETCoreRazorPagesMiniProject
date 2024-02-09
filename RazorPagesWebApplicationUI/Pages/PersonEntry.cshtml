@@ -1,0 +1,39 @@
+﻿@page
+@using ClassLibrary
+@model RazorPagesWebApplicationUI.Pages.PersonEntryModel
+@{
+	ViewData["Title"] = "Person Entry";
+}
+
+
+<div class="text-center">
+	<h1 class="display-4">Person Entry</h1>
+</div>
+
+<form method="post">
+	<div class="form-group">
+		<p class="input-group">
+			<label asp-for="FirstName">First Name</label>
+			<input asp-for="FirstName" type="text" placeholder="Enter first name" />
+		</p>
+		<p class="input-group">
+			<label asp-for="LastName">Last Name</label>
+			<input asp-for="LastName" type="text" placeholder="Enter last name" />
+		</p>
+		<p class="input-group">
+			<label asp-for="IsActive">Active</label>
+			<input asp-for="IsActive" type="checkbox" />
+		</p>
+		<div>
+			<h2>Addresses</h2>
+			@foreach ( AddressModel address in Model.Addresses )
+			{
+				<p>@address.StreetAddress, @address.City, @address.State @address.ZipCode</p>
+			}
+			<button asp-page-handler="add" class="btn btn-secondary">Add New Address</button>
+		</div>
+		<p class="input-group">
+			<button type="Submit" class="btn btn-primary">Save</button>
+		</p>
+	</div>
+</form>

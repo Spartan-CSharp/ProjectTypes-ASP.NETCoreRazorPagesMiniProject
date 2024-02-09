@@ -20,6 +20,7 @@ namespace RazorPagesWebApplicationUI.Pages
 
 		public void OnGet()
 		{
+			_logger.LogInformation("On GET Privacy Page, Privacy Model");
 		}
 	}
 }

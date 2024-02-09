@@ -27,6 +27,7 @@ namespace RazorPagesWebApplicationUI.Pages
 		public void OnGet()
 		{
 			RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+			_logger.LogInformation("On GET Error Page, Error Model, with RequestId = {RequestId}", RequestId);
 		}
 	}
 }

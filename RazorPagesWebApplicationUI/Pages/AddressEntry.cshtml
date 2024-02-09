@@ -1,0 +1,33 @@
+﻿@page
+@model RazorPagesWebApplicationUI.Pages.AddressEntryModel
+@{
+	ViewData["Title"] = "Address Entry";
+}
+
+<div class="text-center">
+	<h1 class="display-4">Address Entry</h1>
+</div>
+
+<form method="post">
+	<div class="form-group">
+		<p>
+			<label asp-for="StreetAddress">Street Address</label>
+			<input asp-for="StreetAddress" type="text" placeholder="Enter street address" />
+		</p>
+		<p>
+			<label asp-for="City">City</label>
+			<input asp-for="City" type="text" placeholder="Enter city" />
+		</p>
+		<p>
+			<label asp-for="State">State</label>
+			<input asp-for="State" type="text" placeholder="Enter state" />
+		</p>
+		<p>
+			<label asp-for="ZipCode">Zip Code</label>
+			<input asp-for="ZipCode" type="text" placeholder="Enter zip code" />
+		</p>
+		<p>
+			<button type="Submit" class="btn btn-primary">Save</button>
+		</p>
+	</div>
+</form>

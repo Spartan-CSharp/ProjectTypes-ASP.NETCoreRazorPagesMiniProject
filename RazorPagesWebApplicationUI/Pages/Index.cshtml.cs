@@ -20,7 +20,7 @@ namespace RazorPagesWebApplicationUI.Pages
 
 		public void OnGet()
 		{
-
+			_logger.LogInformation("On GET Index Page, Index Model");
 		}
 	}
 }
