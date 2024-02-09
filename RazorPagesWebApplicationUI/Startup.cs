@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 using ClassLibrary;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,9 +20,9 @@ namespace RazorPagesWebApplicationUI
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddRazorPages();
-			services.AddSingleton<PersonModel>();
-			services.AddTransient<AddressModel>();
+			_ = services.AddRazorPages();
+			_ = services.AddSingleton<PersonModel>();
+			_ = services.AddTransient<AddressModel>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,26 +30,23 @@ namespace RazorPagesWebApplicationUI
 		{
 			if ( env.IsDevelopment() )
 			{
-				app.UseDeveloperExceptionPage();
+				_ = app.UseDeveloperExceptionPage();
 			}
 			else
 			{
-				app.UseExceptionHandler("/Error");
+				_ = app.UseExceptionHandler("/Error");
 				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-				app.UseHsts();
+				_ = app.UseHsts();
 			}
 
-			app.UseHttpsRedirection();
-			app.UseStaticFiles();
+			_ = app.UseHttpsRedirection();
+			_ = app.UseStaticFiles();
 
-			app.UseRouting();
+			_ = app.UseRouting();
 
-			app.UseAuthorization();
+			_ = app.UseAuthorization();
 
-			app.UseEndpoints(endpoints =>
-			{
-				endpoints.MapRazorPages();
-			});
+			_ = app.UseEndpoints(endpoints => endpoints.MapRazorPages());
 		}
 	}
 }

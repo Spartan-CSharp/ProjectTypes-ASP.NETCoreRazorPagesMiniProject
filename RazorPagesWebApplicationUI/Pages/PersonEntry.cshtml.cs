@@ -48,14 +48,7 @@ namespace RazorPagesWebApplicationUI.Pages
 			FirstName = _person.FirstName;
 			LastName = _person.LastName;
 
-			if ( _person.IsActive == null )
-			{
-				IsActive = false;
-			}
-			else
-			{
-				IsActive = (bool)_person.IsActive;
-			}
+			IsActive = _person.IsActive != null && (bool)_person.IsActive;
 
 			Addresses = _person.Addresses;
 			_logger.LogInformation("On GET Person Entry Page, Person Entry Model");
